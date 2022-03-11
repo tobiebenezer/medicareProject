@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" style="position:sticky">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -15,7 +15,22 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+
+                @can('client')
+                <x-jet-nav-link href="{{ route('main') }}" :active="request()->routeIs('main')">
+                        {{ __('client') }}
+                    </x-jet-nav-link>
+                @endcan
+
+                @can('pharmacy')
+                <x-jet-nav-link href="{{ route('pharmacy') }}" :active="request()->routeIs('pharmacy')">
+                        {{ __('Pharmacy') }}
+                    </x-jet-nav-link>
+                    
+                @endcan
                 </div>
+                    
+                
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

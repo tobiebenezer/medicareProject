@@ -15,18 +15,25 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="css1/css/style.css" <!-- End layout styles -->
-    <link rel="shortcut icon" href="css1/images/favicon.png" />
+    <link rel="stylesheet" href="css1/css/style.css" > <!-- End layout styles -->
+    
   </head>
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex align-items-center">
-          <a class="navbar-brand brand-logo" href="main">
-            <img src="css1/images/med1.png" alt="logo" class="logo-dark"/>
-          </a>
-          <a class="navbar-brand brand-logo-mini" href="main"><img src="css1/images/logo-mini.svg" alt="logo" /></a>
+        <div class="logo">
+                    <h4 style="color:white;">
+                      <a href="{{ route('dashboard')}}">
+                        <img
+                        src="{{asset('/img/logo2.png')}}"
+                        alt="logo"
+                        style="width: 3rem; height: 3rem"
+                        />MEDICARE.
+                      </a>
+                    </h4>
+                </div>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
           <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome!</h5>
@@ -87,8 +94,8 @@
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Allen Moreno</p>
-                  <p class="designation">Administrator</p>
+                  <p class="profile-name">{{ Auth::user()->name }}</p>
+                  <p class="designation">client</p>
                 </div>
               </a>
             </li>
@@ -96,23 +103,23 @@
               <span class="nav-link">Dashboard</span>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="main">
+              <a class="nav-link" href="{{ route('dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="icon-screen-desktop menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile">
+              <a class="nav-link" href="{{ route('profile.show') }}">
                 <span class="menu-title">Profile</span>
                 <i class="icon-screen-desktop menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="searchBar">
                 <span class="menu-title">Order</span>
                 <i class="icon-screen-desktop menu-icon"></i>
               </a>
-            </li>
+            </li> -->
             <!-- <li class="nav-item">
               <a class="nav-link" href="vendor">
                 <span class="menu-title">Become a Vendor</span>

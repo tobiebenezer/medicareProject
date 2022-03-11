@@ -23,13 +23,27 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/main', [usercon::class,'main']);
+Route::get('/main', [usercon::class,'main'])->name('main');
 
 Route::get('/profile', [usercon::class,'profile']);
 
 Route::get('/searchBar', [usercon::class,'searchBar']);
 
-Route::get('/vendor', [usercon::class,'vendor']);
-// Route::group(['middleware' =>"auth"],function(){
-//     Route::group(['middleware' => 'role:customer','as' => 'customer.'],function())
-// })
+Route::get('/vendor', [usercon::class,'vendor'])->name('vendor');
+
+// Route::group(['middleware' => 'auth'], function() {
+//     Route::group(['middleware' => 'role:customer', 'prefix' => 'customer', 'as' => 'client.'], function() {
+//         Route::resource('/client', \App\Http\Controllers\customer\customerController::class);
+//     });
+//    Route::group(['middleware' => 'role:vendor', 'prefix' => 'vendor', 'as' => 'store.'], function() {
+//        Route::resource('/pharmacy', \App\Http\Controllers\vendor\vendorController::class);
+//     });
+// //     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
+// //         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+// //     });
+// });
+
+
+Route::get("/pharmacy",function(){
+    return view("dashboard.vendor.index");
+})->name('pharmacy');

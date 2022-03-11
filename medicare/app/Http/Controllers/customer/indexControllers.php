@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\vendorr;
+namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class dashboardController extends Controller
+class indexControllers extends Controller
 {
     /**
      * Display a listing of the resource.
